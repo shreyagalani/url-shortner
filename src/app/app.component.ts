@@ -25,8 +25,6 @@ export class AppComponent {
     let linkRequest = {
       destination: newUrl,
       domain: { fullName: "rebrand.ly" }
-      //, slashtag: "A_NEW_SLASHTAG"
-      //, title: "Rebrandly YouTube channel"
     }
     if (newUrl) {
       this.showLoader=true;
@@ -45,8 +43,4 @@ export class AppComponent {
       })
     }
   }
-  goToLink(url: string){
-    console.log('url',url)
-    window.open(url, "_blank");
-}
 }

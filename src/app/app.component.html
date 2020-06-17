@@ -12,8 +12,10 @@
       (blur)="addUrl(newUrl.value); newUrl.value='' "
       placeholder="Enter your URL"
       class="shorten-input">
-    <button *ngIf="showLoader" type="button" class="shorten-btn" (click)="addUrl(newUrl.value)" [disabled]=true><img src="../assets/img/spinner.gif" alt="loader Img" class="loader-image"/></button>
-    <button *ngIf="!showLoader" type="button" class="shorten-btn" (click)="addUrl(newUrl.value)">Shorten</button>
+    <button type="button" class="shorten-btn" (click)="addUrl(newUrl.value)" [disabled]=showLoader>
+      <img  *ngIf="showLoader" src="../assets/img/spinner.gif" alt="loader Img" class="loader-image"/>
+      <span *ngIf="!showLoader">Shorten</span>
+    </button>
     </div>
     <div class="hint-label">Link Example: https://example.com</div>
     <div *ngIf="showError" class="error-message">Unable to shorten that link. It is not a valid url.</div>
