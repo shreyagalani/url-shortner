@@ -1,5 +1,6 @@
 <div>
   <div class="shorten-box container">
+    <div class="shorten-inner-box">
     <div class="heading-box">
       <h1 class="heading">URL Shortener</h1>
       <h4 class="sub-heading">Create short URLs for your brand</h4>
@@ -11,15 +12,15 @@
       (blur)="addUrl(newUrl.value); newUrl.value='' "
       placeholder="Enter your URL"
       class="shorten-input">
-    <button *ngIf="showLoader" type="button" class="shorten-btn" (click)="addUrl(newUrl.value)" [disabled]=true><img src="../assets/img/Spinner-1s-200px.gif" alt="loader Img" class="loader-image"/></button>
+    <button *ngIf="showLoader" type="button" class="shorten-btn" (click)="addUrl(newUrl.value)" [disabled]=true><img src="../assets/img/spinner.gif" alt="loader Img" class="loader-image"/></button>
     <button *ngIf="!showLoader" type="button" class="shorten-btn" (click)="addUrl(newUrl.value)">Shorten</button>
     </div>
     <div class="hint-label">Link Example: https://example.com</div>
     <div *ngIf="showError" class="error-message">Unable to shorten that link. It is not a valid url.</div>
   </div>
+</div>
   <div class="container">
     <div class="list-box">
-      <!-- <div *ngIf="showError" class="list error-message">Unable to shorten that link. It is not a valid url.</div> -->
       <div *ngFor="let url of urls" class="list">
         <span class="input-text" title={{url.inputLink}}>{{url.inputLink}}</span>
         <a href="{{url.actualValue}}" target="_blank" class="font-weight-bold" title={{url.displayValue}}>{{url.displayValue}}</a>
