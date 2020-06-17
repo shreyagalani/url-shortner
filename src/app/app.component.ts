@@ -20,22 +20,22 @@ export class AppComponent {
     if(this.showError)
     this.showError = false;
   }
-  addUrl(newUrl: string) {
+  addUrl(url: string) {
     
-    let linkRequest = {
-      destination: newUrl,
+    const requestBody = {
+      destination: url,
       domain: { fullName: "rebrand.ly" }
     }
-    if (newUrl) {
+    if (url) {
       this.showLoader=true;
       axios({
         method:'post',
         url:'https://api.rebrandly.com/v1/links',
-        data:JSON.stringify(linkRequest),
+        data:requestBody,
         headers:requestHeaders
       }).then((response)=>{
         this.showLoader=false;
-        this.urls.push({displayValue:response.data.shortUrl,actualValue: `https://${response.data.shortUrl}`,inputLink: newUrl});
+        this.urls.push({displayValue:response.data.shortUrl,actualValue: `https://${response.data.shortUrl}`,inputLink: url});
       }).catch((error)=>{
         this.showLoader=false;
         this.showError = true;

@@ -6,13 +6,13 @@
       <h4 class="sub-heading">Create short URLs for your brand</h4>
     </div>
     <div class="input-box">
-      <input #newUrl
+      <input #url
       (keydown)="setErrorFalse()"
-      (keyup.enter)="addUrl(newUrl.value)"
-      (blur)="addUrl(newUrl.value); newUrl.value='' "
+      (keyup.enter)="addUrl(url.value)"
+      (blur)="addUrl(url.value); url.value='' "
       placeholder="Enter your URL"
       class="shorten-input">
-    <button type="button" class="shorten-btn" (click)="addUrl(newUrl.value)" [disabled]=showLoader>
+    <button type="button" class="shorten-btn" (click)="addUrl(url.value)" [disabled]=showLoader>
       <img  *ngIf="showLoader" src="../assets/img/spinner.gif" alt="loader Img" class="loader-image"/>
       <span *ngIf="!showLoader">Shorten</span>
     </button>

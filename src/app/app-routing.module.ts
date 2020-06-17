@@ -9,9 +9,5 @@ const urls =[];
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
-  addUrl(newUrl: string) {
-    if (newUrl) {
-      urls.push(newUrl);
-    }
-  }
+  
 }
